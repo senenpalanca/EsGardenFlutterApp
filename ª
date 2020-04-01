@@ -1,0 +1,99 @@
+AllData chart añadido
+ Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch master
+# Your branch is up to date with 'myorigin/master'.
+#
+# Changes to be committed:
+#	new file:   .gitignore
+#	new file:   .metadata
+#	new file:   botbitboing/.gitignore
+#	new file:   botbitboing/.metadata
+#	new file:   botbitboing/README.md
+#	new file:   botbitboing/android/.gitignore
+#	new file:   botbitboing/android/app/build.gradle
+#	new file:   botbitboing/android/app/src/debug/AndroidManifest.xml
+#	new file:   botbitboing/android/app/src/main/AndroidManifest.xml
+#	new file:   botbitboing/android/app/src/main/kotlin/org/myhome/botbitboing/MainActivity.kt
+#	new file:   botbitboing/android/app/src/main/res/drawable/launch_background.xml
+#	new file:   botbitboing/android/app/src/main/res/mipmap-hdpi/ic_launcher.png
+#	new file:   botbitboing/android/app/src/main/res/mipmap-mdpi/ic_launcher.png
+#	new file:   botbitboing/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png
+#	new file:   botbitboing/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png
+#	new file:   botbitboing/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png
+#	new file:   botbitboing/android/app/src/main/res/values/styles.xml
+#	new file:   botbitboing/android/app/src/profile/AndroidManifest.xml
+#	new file:   botbitboing/android/build.gradle
+#	new file:   botbitboing/android/gradle.properties
+#	new file:   botbitboing/android/gradle/wrapper/gradle-wrapper.properties
+#	new file:   botbitboing/android/settings.gradle
+#	new file:   botbitboing/ios/.gitignore
+#	new file:   botbitboing/ios/Flutter/AppFrameworkInfo.plist
+#	new file:   botbitboing/ios/Flutter/Debug.xcconfig
+#	new file:   botbitboing/ios/Flutter/Release.xcconfig
+#	new file:   botbitboing/ios/Runner.xcodeproj/project.pbxproj
+#	new file:   botbitboing/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+#	new file:   botbitboing/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme
+#	new file:   botbitboing/ios/Runner.xcworkspace/contents.xcworkspacedata
+#	new file:   botbitboing/ios/Runner/AppDelegate.swift
+#	new file:   botbitboing/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json
+#	new file:   botbitboing/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png
+#	new file:   botbitboing/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png
+#	new file:   botbitboing/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png
+#	new file:   botbitboing/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png
+#	new file:   botbitboing/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png
+#	new file:   botbitboing/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png
+#	new file:   botbitboing/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png
+#	new file:   botbitboing/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png
+#	new file:   botbitboing/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png
+#	new file:   botbitboing/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png
+#	new file:   botbitboing/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png
+#	new file:   botbitboing/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png
+#	new file:   botbitboing/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png
+#	new file:   botbitboing/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png
+#	new file:   botbitboing/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png
+#	new file:   botbitboing/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json
+#	new file:   botbitboing/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png
+#	new file:   botbitboing/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png
+#	new file:   botbitboing/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png
+#	new file:   botbitboing/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md
+#	new file:   botbitboing/ios/Runner/Base.lproj/LaunchScreen.storyboard
+#	new file:   botbitboing/ios/Runner/Base.lproj/Main.storyboard
+#	new file:   botbitboing/ios/Runner/Info.plist
+#	new file:   botbitboing/ios/Runner/Runner-Bridging-Header.h
+#	new file:   botbitboing/lib/main.dart
+#	new file:   botbitboing/pubspec.lock
+#	new file:   botbitboing/pubspec.yaml
+#	new file:   botbitboing/test/widget_test.dart
+#	modified:   lib/Layout/Calendar.dart
+#	modified:   lib/Layout/FormChartAllData.dart
+#	new file:   lib/Layout/FormChartAllDataHumidity.dart
+#	modified:   lib/Layout/FormChartHistograms.dart
+#	modified:   lib/Layout/FormFirebaseConFuturo.dart
+#	modified:   lib/Layout/FormVisualization.dart
+#	modified:   lib/Layout/Home.dart
+#	modified:   lib/Layout/Items.dart
+#	modified:   lib/Layout/Panel.dart
+#	modified:   lib/Layout/Plots.dart
+#	deleted:    lib/Layout/createGarden.dart
+#	modified:   lib/Layout/createPlot.dart
+#	modified:   lib/Layout/formChart.dart
+#	modified:   lib/Layout/formChartDouble.dart
+#	new file:   lib/Layout/formGarden.dart
+#	modified:   lib/Layout/main.dart
+#	modified:   lib/Library/Globals.dart
+#	modified:   lib/Structure/CatalogItem.dart
+#	modified:   lib/Structure/DataElement.dart
+#	modified:   lib/Structure/Orchard.dart
+#	modified:   lib/Structure/Plot.dart
+#	modified:   lib/Structure/Vegetable.dart
+#	modified:   lib/UI/CardCatalog.dart
+#	modified:   lib/UI/CardGarden.dart
+#	modified:   lib/UI/CardPlot.dart
+#	modified:   lib/UI/InputField.dart
+#	modified:   lib/UI/LineChart.dart
+#	modified:   lib/UI/NotificationList.dart
+#	modified:   lib/UI/PersonalizedField.dart
+#	modified:   lib/UI/SimpleLineChart.dart
+#
