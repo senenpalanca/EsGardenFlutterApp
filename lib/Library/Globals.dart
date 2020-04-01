@@ -47,7 +47,7 @@ const Map<String, String> CATALOG_NAMES = const {
   "08": "Ambient Humidity"
 };
 const Map<String, String> CATALOG_NAMES2 = const {
-  //AMBIENTE
+  //AMBIENTE2
   "00": "Soil Humidity", //Luminosidad
   "01": "Upper Humidity", //Temp ambiente
   "02": "Lower Humidity", //Hum. ambiente
