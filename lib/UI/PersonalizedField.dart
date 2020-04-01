@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-class PersonalizedField extends StatelessWidget {
 
+class PersonalizedField extends StatelessWidget {
   TextEditingController controller;
   String hintText;
   bool obscureText;
@@ -21,20 +21,20 @@ class PersonalizedField extends StatelessWidget {
     );
   }
 }
-class PersonalizedField2 extends StatelessWidget {
 
+class PersonalizedField2 extends StatelessWidget {
   TextEditingController controller;
   String hintText;
   bool obscureText;
   Icon fieldIcon;
 
-  PersonalizedField2(this.controller,this.hintText, this.obscureText,this.fieldIcon);
+  PersonalizedField2(
+      this.controller, this.hintText, this.obscureText, this.fieldIcon);
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
-      width:310,
-
+    return Container(
+      width: 310,
       child: Material(
           elevation: 5.0,
           color: Colors.deepOrange,
@@ -49,28 +49,25 @@ class PersonalizedField2 extends StatelessWidget {
               Container(
                 width: 270,
                 child: TextField(
-
                   controller: controller,
                   obscureText: this.obscureText,
                   decoration: InputDecoration(
-                    border: OutlineInputBorder(borderRadius: BorderRadius.only(topRight: Radius.circular(10.0), bottomRight: Radius.circular(10.0))),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(10.0),
+                            bottomRight: Radius.circular(10.0))),
                     fillColor: Colors.white,
                     filled: true,
                     hintText: this.hintText,
-
-
                   ),
                   style: TextStyle(
                     fontSize: 20.0,
                     color: Colors.black,
-
                   ),
                 ),
               ),
             ],
-          )
-
-      ),
+          )),
     );
   }
 }

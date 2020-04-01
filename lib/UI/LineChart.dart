@@ -9,10 +9,11 @@ class LineChart extends StatelessWidget {
   int highest;
   int lowest;
 
-  LineChart( this.seriesList, this.highest, this.lowest, {this.animate});
+  LineChart(this.seriesList, this.highest, this.lowest, {this.animate});
 
   /// Creates a [LineChart] with sample data and no transition.
-  factory LineChart.createData(Color color, List data, String type, int maxValue) {
+  factory LineChart.createData(
+      Color color, List data, String type, int maxValue) {
     return new LineChart(
       _createData(color, data, type),
       maxValue,
@@ -22,7 +23,7 @@ class LineChart extends StatelessWidget {
   }
   factory LineChart.createDoubleData(List data, List dataTypes, int maxValue) {
     return new LineChart(
-      _createDoubleData( data, dataTypes),
+      _createDoubleData(data, dataTypes),
       maxValue,
       0,
       animate: true,
@@ -49,6 +50,7 @@ class LineChart extends StatelessWidget {
           //viewport:  charts.NumericExtents(0,highest),
           renderSpec: new charts.GridlineRendererSpec(
               //minimumPaddingBetweenLabelsPx: 25,
+
               // Tick and Label styling here.
               labelStyle: new charts.TextStyleSpec(
                   fontSize: 13, // size in Pts.
@@ -59,19 +61,23 @@ class LineChart extends StatelessWidget {
                   color: charts.MaterialPalette.transparent)),
         ),
         domainAxis: new charts.DateTimeAxisSpec(
-          //HIDE Domain Axis:
-          renderSpec: new charts.NoneRenderSpec(),
-//          renderSpec: charts.SmallTickRendererSpec(
-//            // Tick and Label styling here.
-//            labelStyle: new charts.TextStyleSpec(
-//              color: charts.MaterialPalette.black,
-//            )
-//          ),
+
+            //HIDE Domain Axis:
+          //  renderSpec: new charts.NoneRenderSpec(),
+          renderSpec: charts.SmallTickRendererSpec(
+            // Tick and Label styling here.
+            minimumPaddingBetweenLabelsPx: 0,
+            labelOffsetFromAxisPx: 20,
+            labelStyle: new charts.TextStyleSpec(
+              color: charts.MaterialPalette.black,
+            )
+
+          ),
+            //tickProviderSpec: charts.DayTickProviderSpec(increments: [1]),
+            //tickProviderSpec: charts.AutoDateTimeTickProviderSpec(includeTime: true),
             tickFormatterSpec: new charts.AutoDateTimeTickFormatterSpec(
-
-                day: new charts.TimeFormatterSpec(
-
-                    format: 'h', transitionFormat: 'HH')))
+                hour: new charts.TimeFormatterSpec(
+                    format: 'hh:mm', transitionFormat: 'MMM d HH:mm')))
 
         /// Assign a custom style for the measure axis.
 
@@ -80,9 +86,11 @@ class LineChart extends StatelessWidget {
 
   /// Create one series with sample hard coded data.
 
-
   static List<charts.Series<TimeSeriesValue, DateTime>> _createData(
-      Color color, List<DataElement> data, String type,) {
+    Color color,
+    List<DataElement> data,
+    String type,
+  ) {
     List<DataElement> DataElements = new List<DataElement>.from(data);
     DataElements.removeWhere((value) => value == null);
     final List<TimeSeriesValue> dataList = [];
@@ -100,15 +108,11 @@ class LineChart extends StatelessWidget {
       new charts.Series<TimeSeriesValue, DateTime>(
         id: 'Sales',
         colorFn: (_, __) => charts.Color(
-            r: color.red,
-            g: color.green,
-            b: color.blue,
-            a: color.alpha),
-        areaColorFn: (_, __) =>charts.Color(
-            r: color.red,
-            g: color.green,
-            b: color.blue,
-            a: color.alpha).lighter.lighter,
+            r: color.red, g: color.green, b: color.blue, a: color.alpha),
+        areaColorFn: (_, __) => charts.Color(
+                r: color.red, g: color.green, b: color.blue, a: color.alpha)
+            .lighter
+            .lighter,
         domainFn: (TimeSeriesValue item, _) => item.time,
         measureFn: (TimeSeriesValue item, _) => item.value,
         data: dataList,
@@ -118,23 +122,23 @@ class LineChart extends StatelessWidget {
 
   static List<charts.Series<TimeSeriesValue, DateTime>> _createDoubleData(
       List<DataElement> data, List<String> types) {
-
     List<DataElement> DataElements = new List<DataElement>.from(data);
     DataElements.removeWhere((value) => value == null);
     final List<TimeSeriesValue> dataList1 = [];
     final List<TimeSeriesValue> dataList2 = [];
 
-
     for (var i = 0; i < DataElements.length; i++) {
-      int j = DataElements[i].Types.indexOf(CATALOG_TYPES[types[0].toLowerCase()]);
+      int j =
+          DataElements[i].Types.indexOf(CATALOG_TYPES[types[0].toLowerCase()]);
       if (j != -1) {
         dataList1.add(new TimeSeriesValue(
             DataElements[i].timestamp, DataElements[i].Fields[j]));
       }
-      int k = DataElements[i].Types.indexOf(CATALOG_TYPES[types[1].toLowerCase()]);
+      int k =
+          DataElements[i].Types.indexOf(CATALOG_TYPES[types[1].toLowerCase()]);
       if (k != -1) {
-        dataList2.add(new TimeSeriesValue(
-            DataElements[i].timestamp,  DataElements[i].Fields[k] - DataElements[i].Fields[j]  ));
+        dataList2.add(new TimeSeriesValue(DataElements[i].timestamp,
+            DataElements[i].Fields[k] - DataElements[i].Fields[j]));
       }
     }
 
@@ -142,7 +146,8 @@ class LineChart extends StatelessWidget {
       new charts.Series<TimeSeriesValue, DateTime>(
         id: 'Sales',
         colorFn: (_, __) => charts.MaterialPalette.cyan.shadeDefault.darker,
-        areaColorFn: (_, __) => charts.MaterialPalette.cyan.shadeDefault.lighter,
+        areaColorFn: (_, __) =>
+            charts.MaterialPalette.cyan.shadeDefault.lighter,
         domainFn: (TimeSeriesValue item, _) => item.time,
         measureFn: (TimeSeriesValue item, _) => item.value,
         data: dataList1,
@@ -150,7 +155,8 @@ class LineChart extends StatelessWidget {
       new charts.Series<TimeSeriesValue, DateTime>(
         id: 'Sales',
         colorFn: (_, __) => charts.MaterialPalette.blue.shadeDefault,
-        areaColorFn: (_, __) => charts.MaterialPalette.blue  .shadeDefault.lighter,
+        areaColorFn: (_, __) =>
+            charts.MaterialPalette.blue.shadeDefault.lighter,
         domainFn: (TimeSeriesValue item, _) => item.time,
         measureFn: (TimeSeriesValue item, _) => item.value,
         data: dataList2,
@@ -158,7 +164,6 @@ class LineChart extends StatelessWidget {
     ];
   }
 }
-
 
 /// Sample linear data type.
 class DataItem {

@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
 
-class InputField extends StatelessWidget{
-
+class InputField extends StatelessWidget {
   Icon fieldIcon;
   String hintText;
   bool obscureText;
 
   InputField(this.fieldIcon, this.hintText, this.obscureText);
 
-
   @override
   Widget build(BuildContext context) {
     return Container(
-      width:310,
-
+      width: 310,
       child: Material(
           elevation: 5.0,
           color: Colors.deepOrange,
@@ -30,43 +27,32 @@ class InputField extends StatelessWidget{
                 child: TextField(
                   obscureText: this.obscureText,
                   decoration: InputDecoration(
-                      border: OutlineInputBorder(borderRadius: BorderRadius.only(topRight: Radius.circular(10.0), bottomRight: Radius.circular(10.0))),
-                      fillColor: Colors.white,
-                      filled: true,
-                      hintText: this.hintText,
-
-
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(10.0),
+                            bottomRight: Radius.circular(10.0))),
+                    fillColor: Colors.white,
+                    filled: true,
+                    hintText: this.hintText,
                   ),
                   style: TextStyle(
-                      fontSize: 20.0,
-                      color: Colors.black,
-
+                    fontSize: 20.0,
+                    color: Colors.black,
                   ),
                 ),
               ),
             ],
-          )
-
-      ),
+          )),
     );
-
   }
-
-
 }
 
-class CustomInputField extends StatefulWidget{
-
-
+class CustomInputField extends StatefulWidget {
   @override
   CustomInputFieldState createState() => new CustomInputFieldState();
-
-
-
 }
 
-class CustomInputFieldState extends State<CustomInputField>{
-
+class CustomInputFieldState extends State<CustomInputField> {
   Icon fieldIcon;
   String hintText;
   bool obscureText;
@@ -76,8 +62,7 @@ class CustomInputFieldState extends State<CustomInputField>{
   @override
   Widget build(BuildContext context) {
     return Container(
-      width:310,
-
+      width: 310,
       child: Material(
           elevation: 5.0,
           color: Colors.deepOrange,
@@ -94,27 +79,22 @@ class CustomInputFieldState extends State<CustomInputField>{
                 child: TextField(
                   obscureText: this.obscureText,
                   decoration: InputDecoration(
-                    border: OutlineInputBorder(borderRadius: BorderRadius.only(topRight: Radius.circular(10.0), bottomRight: Radius.circular(10.0))),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(10.0),
+                            bottomRight: Radius.circular(10.0))),
                     fillColor: Colors.white,
                     filled: true,
                     hintText: this.hintText,
-
-
                   ),
                   style: TextStyle(
                     fontSize: 20.0,
                     color: Colors.black,
-
                   ),
                 ),
               ),
             ],
-          )
-
-      ),
+          )),
     );
-
   }
-
-
 }

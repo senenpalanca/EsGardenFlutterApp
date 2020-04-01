@@ -13,12 +13,11 @@ class formVisualization extends StatelessWidget {
   Plot PlotKey;
   final FirebaseDatabase _database = FirebaseDatabase.instance;
 
-  formVisualization ({Key key, @required this.PlotKey}) : super(key: key);
+  formVisualization({Key key, @required this.PlotKey}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
-  //HandleData();
+    //HandleData();
     return Scaffold(
         appBar: AppBar(
           title: Text("Data Log"),
@@ -26,17 +25,15 @@ class formVisualization extends StatelessWidget {
         ),
         body: FutureBuilder(
           future: getDataFromFuture(),
-          builder: (context, snapshot){
-            if(snapshot.data!=null){
+          builder: (context, snapshot) {
+            if (snapshot.data != null) {
               return formUI();
             }
-            return Center(child: CircularProgressIndicator(),);
+            return Center(
+              child: CircularProgressIndicator(),
+            );
           },
-
-        )
-
-        );
-
+        ));
   }
 
   HandleData() {
@@ -50,28 +47,20 @@ class formVisualization extends StatelessWidget {
         .onChildAdded
         .listen(_onNewVegetable);
   }
-  void _onNewVegetable(Event event){
+
+  void _onNewVegetable(Event event) {
     Vegetable n = Vegetable.fromSnapshot(event.snapshot);
     vegetables.add(n);
   }
 
-  Widget formUI(){
-
+  Widget formUI() {
     return Container(
       color: Colors.white70,
-      child: ListView(
-
-
-
-      ),
+      child: ListView(),
     );
-
-
   }
 
-  Future<String> getDataFromFuture() async{
-    return new Future.delayed(Duration(milliseconds: 1000), ()=>"WaitFinish");
+  Future<String> getDataFromFuture() async {
+    return new Future.delayed(Duration(milliseconds: 1000), () => "WaitFinish");
   }
-
-
 }

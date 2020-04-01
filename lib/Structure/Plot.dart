@@ -1,6 +1,5 @@
 import 'package:firebase_database/firebase_database.dart';
 
-
 class Plot {
   String key;
   String Name;
@@ -16,14 +15,14 @@ class Plot {
   String img;
   String parent;
   String vegetableIndex;
-  Plot( this.Name, this.Temp, this.Vegetable, this.City);
+  Plot(this.Name, this.Temp, this.Vegetable, this.City);
 
-  Plot.fromSnapshot(DataSnapshot snapshot) :
-        key = snapshot.key,
+  Plot.fromSnapshot(DataSnapshot snapshot)
+      : key = snapshot.key,
         alerts = snapshot.value["Alerts"],
         data = snapshot.value["Data"],
         Name = snapshot.value["Name"],
-        img = snapshot.value["Img"] ,
+        img = snapshot.value["Img"],
         Temp = snapshot.value["Temperature"],
         Vegetable = snapshot.value["Vegetable"],
         HumiditySup = snapshot.value["Humidity30"],
@@ -31,9 +30,8 @@ class Plot {
         CO2 = snapshot.value["CO2"],
         items = snapshot.value["Items"],
         parent = snapshot.value["Parent"],
-        vegetableIndex= snapshot.value["VegetableIndex"],
+        vegetableIndex = snapshot.value["VegetableIndex"],
         City = snapshot.value["City"];
-
 
   toJson() {
     return {

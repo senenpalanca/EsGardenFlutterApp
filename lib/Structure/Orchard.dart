@@ -13,13 +13,13 @@ class Orchard {
   String City;
   String img;
 
-  Orchard( this.Name, this.Temp, this.Vegetable, this.City);
+  Orchard(this.Name, this.Temp, this.Vegetable, this.City);
 
-  Orchard.fromSnapshot(DataSnapshot snapshot) :
-        key = snapshot.key,
+  Orchard.fromSnapshot(DataSnapshot snapshot)
+      : key = snapshot.key,
         alerts = snapshot.value["Alerts"],
         Name = snapshot.key,
-        img = snapshot.value["Img"] ,
+        img = snapshot.value["Img"],
         Temp = snapshot.value["Temperature"],
         Vegetable = snapshot.value["Vegetable"],
         HumiditySup = snapshot.value["Humidity30"],
@@ -30,7 +30,7 @@ class Orchard {
 
   toJson() {
     return {
-       "Name": Name,
+      "Name": Name,
       "key": key,
       "temperature": Temp,
       "Ciy": City,

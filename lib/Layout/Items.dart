@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_login1/Layout/Calendar.dart';
 import 'package:flutter_login1/Layout/FormChartAllData.dart';
 import 'package:flutter_login1/Layout/FormChartHistograms.dart';
-
+import 'package:flutter_login1/Library/Globals.dart' as globals;
 import 'package:flutter_login1/Layout/FormVegetable.dart';
 import 'package:flutter_login1/Layout/Home.dart';
 import 'package:flutter_login1/Structure/Plot.dart';
@@ -107,6 +107,7 @@ class MainPlotItemsState extends State<MainPlotItems> {
       },
     );
   }
+
   void _showChangeNameDialog(BuildContext context) {
     String plotName = '';
     // flutter defined function
@@ -120,20 +121,20 @@ class MainPlotItemsState extends State<MainPlotItems> {
             children: <Widget>[
               new Expanded(
                   child: new TextField(
-                    autofocus: true,
-                    decoration: new InputDecoration(
-                        labelText: 'Plot Name', hintText: 'eg. Tomatoes from UPV'),
-                    onChanged: (value) {
-                      plotName  = value;
-                    },
-                  ))
+                autofocus: true,
+                decoration: new InputDecoration(
+                    labelText: 'Plot Name', hintText: 'eg. Tomatoes from UPV'),
+                onChanged: (value) {
+                  plotName = value;
+                },
+              ))
             ],
           ),
           actions: <Widget>[
             FlatButton(
               child: Text('Ok'),
               onPressed: () {
-                if(plotName.length>0) {
+                if (plotName.length > 0) {
                   final _database = FirebaseDatabase.instance.reference();
                   final databaseReference = _database
                       .child("usuarios")
@@ -179,7 +180,6 @@ class MainPlotItemsState extends State<MainPlotItems> {
       totalItems.add("Historic Data");
       totalItems.add("Compost Temperature");
       totalItems.add("Luminosity");
-
     } else {
       totalItems.clear();
       totalItems.add("Vegetable");
@@ -194,7 +194,7 @@ class MainPlotItemsState extends State<MainPlotItems> {
   @override
   Widget build(BuildContext context) {
     _chargePopUpItemsList();
-    ////print("build");
+    print(globals.isAdmin);
     final title = 'Items of ' + widget.PlotKey.Name;
     return MaterialApp(
       title: title,
@@ -240,6 +240,7 @@ class MainPlotItemsState extends State<MainPlotItems> {
                 },
               ),
               PopupMenuButton<int>(
+                  enabled: globals.isAdmin,
                   itemBuilder: (BuildContext context) => [
                         PopupMenuItem(
                           enabled: false,
@@ -252,6 +253,7 @@ class MainPlotItemsState extends State<MainPlotItems> {
                         ),
                         PopupMenuItem(
                           value: 2,
+                          enabled: globals.isAdmin,
                           child: FlatButton(
                             onPressed: () {
                               _showChangeNameDialog(context);
@@ -263,24 +265,29 @@ class MainPlotItemsState extends State<MainPlotItems> {
                             ),
                           ),
                         ),
-                    PopupMenuItem(
-                      value: 2,
-                      child: FlatButton(
-                        onPressed: () {
-
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => Calendar(PlotKey: widget.PlotKey,)),
-                          );
-                        },
-                        child: Text(
-                          "Calendar",
-                          style: TextStyle(
-                              color: Colors.black45, fontSize: 18.0),
-                        ),
-                      ),
-                    ),
                         PopupMenuItem(
+                          value: 2,
+
+                          child: FlatButton(
+                            onPressed: () {
+
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Calendar(
+                                          PlotKey: widget.PlotKey,
+                                        )),
+                              );
+                            },
+                            child: Text(
+                              "Calendar",
+                              style: TextStyle(
+                                  color: Colors.black45, fontSize: 18.0),
+                            ),
+                          ),
+                        ),
+                        PopupMenuItem(
+                          enabled: globals.isAdmin,
                           value: 2,
                           child: FlatButton(
                             onPressed: () {
@@ -398,20 +405,19 @@ class MainPlotItemsState extends State<MainPlotItems> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) =>
-                          formChart(
-                              PlotKey: widget.PlotKey,
-                              color: Colors.blue,
-                              type: "ambienthumidity")),
+                      builder: (context) => formChart(
+                          PlotKey: widget.PlotKey,
+                          color: Colors.blue,
+                          type: "ambienthumidity")),
                 );
               },
               child: Card(
                 elevation: 3.0,
                 shape: Border(
                     right: BorderSide(
-                      color: Colors.cyan,
-                      width: 15,
-                    )),
+                  color: Colors.cyan,
+                  width: 15,
+                )),
                 child: Column(
                   children: <Widget>[
                     Padding(
@@ -447,18 +453,17 @@ class MainPlotItemsState extends State<MainPlotItems> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => formChartHistograms(
-                          PlotKey: widget.PlotKey
-                         )),
+                      builder: (context) =>
+                          formChartHistograms(PlotKey: widget.PlotKey)),
                 );
               },
               child: Card(
                 elevation: 3.0,
                 shape: Border(
                     right: BorderSide(
-                      color: Colors.red,
-                      width: 15,
-                    )),
+                  color: Colors.red,
+                  width: 15,
+                )),
                 child: Column(
                   children: <Widget>[
                     Padding(
@@ -504,9 +509,9 @@ class MainPlotItemsState extends State<MainPlotItems> {
                 elevation: 3.0,
                 shape: Border(
                     right: BorderSide(
-                      color: Colors.red,
-                      width: 15,
-                    )),
+                  color: Colors.red,
+                  width: 15,
+                )),
                 child: Column(
                   children: <Widget>[
                     Padding(
@@ -860,11 +865,10 @@ class MainPlotItemsState extends State<MainPlotItems> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) =>
-                          formChart(
-                              PlotKey: widget.PlotKey,
-                              color: Colors.blue,
-                              type: "ambienthumidity")),
+                      builder: (context) => formChart(
+                          PlotKey: widget.PlotKey,
+                          color: Colors.blue,
+                          type: "ambienthumidity")),
                 );
               },
               child: Card(

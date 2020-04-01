@@ -19,17 +19,18 @@ class CalendarState extends State<Calendar> {
   final FirebaseDatabase _database = FirebaseDatabase.instance;
   CalendarController _controller;
 
- @override
- void initState(){
-   super.initState();
-   _controller = CalendarController();
- }
+  @override
+  void initState() {
+    super.initState();
+    _controller = CalendarController();
+  }
+
   @override
   Widget build(BuildContext context) {
     HandleData();
     return Scaffold(
         appBar: AppBar(
-          title: Text("Calendar of "+ widget.PlotKey.Vegetable),
+          title: Text("Calendar of " + widget.PlotKey.Vegetable),
           backgroundColor: Colors.green,
         ),
         body: FutureBuilder(
@@ -63,9 +64,7 @@ class CalendarState extends State<Calendar> {
     return Container(
       color: Colors.white70,
       child: ListView(
-        children: <Widget>[
-
-        ],
+        children: <Widget>[],
       ),
     );
   }
